@@ -28,6 +28,14 @@ provides :
 
 # Build
 
+- check env
+- get code
+
+```sh
+git clone https://github.com/sinlov/Java-Gradle-Probe.git
+cd Java-Gradle-Probe
+```
+
 ## jvmProbe
 
 ```sh
@@ -39,6 +47,7 @@ out jar at `./build/outLibs/jvmProbe-*.jar`
 - use
 
 ```sh
+cd ./build/outLibs
 java -jar [params] jvmProbe-*.jar -h
 ```
 
