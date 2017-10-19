@@ -16,7 +16,7 @@ Project Runtime:
 # Last Version Info
 
 - version 1.3.0
-- repo at http://nexus.shishike.com/nexus/content/repositories/releases/
+- repo at https://github.com/sinlov/Java-Gradle-Probe/releases
 - change [TAG.md](TAG.md)
 
 provides :
