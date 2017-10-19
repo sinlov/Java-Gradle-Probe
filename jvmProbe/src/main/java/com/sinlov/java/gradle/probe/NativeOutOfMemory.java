@@ -1,6 +1,7 @@
 package com.sinlov.java.gradle.probe;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * <pre>
@@ -22,6 +23,7 @@ import java.util.concurrent.CountDownLatch;
 public class NativeOutOfMemory {
 
     private static final String string = "Thread OOM count => ";
+    private static final AtomicInteger count = new AtomicInteger();
 
     public static void threadOOM() {
         try {
@@ -32,6 +34,13 @@ public class NativeOutOfMemory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void maxThreadCount() {
+        while (true)
+            (new CountThread()).start();
+
+
     }
 
     static class HoldThread extends Thread {
@@ -45,7 +54,22 @@ public class NativeOutOfMemory {
             try {
                 cdl.await();
             } catch (InterruptedException e) {
+
             }
+        }
+    }
+
+    static class CountThread extends Thread {
+        @Override
+        public void run() {
+            System.out.println(count.incrementAndGet());
+            while (true)
+                try {
+                    Thread.sleep(Integer.MAX_VALUE);
+                } catch (InterruptedException e) {
+
+                    break;
+                }
         }
     }
 }

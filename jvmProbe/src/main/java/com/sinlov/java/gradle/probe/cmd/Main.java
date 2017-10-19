@@ -31,7 +31,8 @@ public class Main {
         Options options = new Options();
         options.addOption("h", "help", false, "print help");
         options.addOption("v", "verbose", false, "print verbose");
-        options.addOption("deepCall", false, "print deepCall count \nLet [ java -jar -Xmx128m -Xms128m -Xss1024k ] for test");
+        options.addOption("deepCall", false, "print deepCall count\nLet [ java -jar -Xms1024m -Xmx1024m -Xss1024k ] for test");
+        options.addOption("maxThread", false, "print maxThread\nLet [ java -jar -Xms1024m -Xmx1024m -Xss1024k ] for test");
         options.addOption("threadOOM", false, "print thread OOM");
         return options;
     }
@@ -39,6 +40,11 @@ public class Main {
     private static void controlOption(CommandLine cmd) {
         if (cmd.hasOption("threadOOM")) {
             NativeOutOfMemory.threadOOM();
+            System.exit(0);
+        }
+
+        if (cmd.hasOption("maxThread")) {
+            NativeOutOfMemory.maxThreadCount();
             System.exit(0);
         }
 
