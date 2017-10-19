@@ -62,17 +62,6 @@ build
 out jar at `./build/outLibs/xxx-release-xxx-x.jar`
 
 
-#  error
-
-出现提示重复定义 clean 注释掉根目录下的 `build.gradle` 中这段代码
-
-```gradle
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
-```
-
-
 # test
 
 ### License
