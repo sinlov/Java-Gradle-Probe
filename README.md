@@ -26,6 +26,20 @@ provides :
 
 # Build
 
+## jvmProbe
+
+```sh
+./gradlew :jvmProbe:runOutLibs
+```
+
+out jar at `./build/outLibs/jvmProbe-*.jar`
+
+- use
+
+```sh
+java -jar [params] jvmProbe-*.jar -h
+```
+
 ## ZipUtils
 
 build
