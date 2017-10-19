@@ -1,0 +1,5 @@
+// Sets the output JAR filename
+//rootProject.name = 'apkReSign'
+include 'ZipUtils'
+include 'jvmProbe'
+//include 'temp'
