@@ -1,5 +1,7 @@
-package com.sinlov.java.temp.cmd;
+package com.sinlov.java.gradle.probe.cmd;
 
+import com.sinlov.java.gradle.probe.NativeOutOfMemory;
+import com.sinlov.java.gradle.probe.XssParams;
 import org.apache.commons.cli.*;
 
 import java.util.Arrays;
@@ -29,11 +31,22 @@ public class Main {
         Options options = new Options();
         options.addOption("h", "help", false, "print help");
         options.addOption("v", "verbose", false, "print verbose");
+        options.addOption("deepCall", false, "print deepCall count \nLet [ java -jar -Xmx128m -Xms128m -Xss1024k ] for test");
+        options.addOption("threadOOM", false, "print thread OOM");
         return options;
     }
 
     private static void controlOption(CommandLine cmd) {
+        if (cmd.hasOption("threadOOM")) {
+            NativeOutOfMemory.threadOOM();
+            System.exit(0);
+        }
 
+        if (cmd.hasOption("deepCall")) {
+            int deepCall = XssParams.deepCall();
+            System.out.println("deepCall = " + deepCall);
+            System.exit(0);
+        }
     }
 
     private static void verboseSysOut(final String msg, String... args) {
@@ -44,10 +57,6 @@ public class Main {
 
     private static boolean isStringEmpty(String str) {
         return null == str || str.equals("");
-    }
-
-    private static void isExitCilWhenOptionSizeError(CommandLine cmd) {
-        isExitCilWhenOptionSizeError(cmd, 0);
     }
 
     private static void isExitCilWhenOptionSizeError(CommandLine cmd, int lessSize) {

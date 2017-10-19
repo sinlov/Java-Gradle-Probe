@@ -1,4 +1,4 @@
-package com.sinlov.java.temp.cmd;
+package com.sinlov.java.gradle.probe.cmd;
 
 public interface Contents {
   int EXIT_CODE_PARAMS_ERROR = -2;
