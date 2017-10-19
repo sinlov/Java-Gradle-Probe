@@ -15,7 +15,9 @@ Project Runtime:
 
 # Last Version Info
 
-- version 1.3.0
+- In Base Dev, not has release! see [Build](https://github.com/sinlov/Java-Gradle-Probe#build)
+
+- version 0.0.1
 - repo at https://github.com/sinlov/Java-Gradle-Probe/releases
 - change [TAG.md](TAG.md)
 
